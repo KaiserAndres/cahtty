@@ -1,0 +1,38 @@
+Backend:
+	+ Receive messages on JSON format
+	+ Create message internal log
+	+ Each message has the following structure
+	message = {
+		"action":    "post"
+		"messageID": 000001,
+		"text":      "Hello I am a smaple message",
+		"timestamp": 00000001,
+		"userID":    01,
+		"channel":   "#testing",
+		"edited":    false
+	} 
+	+ A message can be edited
+
+Frontend:
+	+ Receives JSON messages from the server 
+	+ Can send a new message to the server
+	+ Can ask the server to delete a message
+	+ Can send an edit request to the server
+	+ An edit request looks like this
+	edit = {
+		"action":        "edit"
+		"editorID":      01,
+		"messageID":     000001,
+		"editTimeStamp": 000001,
+		"newMessage":    "Well that was a mistake",
+		"channel":       "#testing"
+	}
+	+ A delet request looks like this
+	delete = {
+		"action": "del"
+		"userID":       01,
+		"messageID":    000001,
+		"delTimestamp": 000001
+		"channel":      "#channel"
+
+	}
